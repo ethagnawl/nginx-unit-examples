@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  web:
+    image: unit:1.32.1-wasm
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./config.json:/docker-entrypoint.d/wtf.json
+      - ./test-wasi-component/target/wasm32-wasi/release/test_wasi_component.wasm:/www/foo.wasm
+    ports:
+      - '8080:8080'

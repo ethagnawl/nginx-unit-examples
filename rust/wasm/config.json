@@ -1,0 +1,13 @@
+{
+   "listeners": {
+      "*:8080": {
+         "pass": "applications/foo"
+      }
+   },
+   "applications": {
+      "foo": {
+         "type": "wasm-wasi-component",
+         "component": "/www/foo.wasm"
+      }
+   }
+}
